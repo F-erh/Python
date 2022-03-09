@@ -1,1 +1,2 @@
-# python-estudos
+# Python
+Aulas e pequenos projetos
