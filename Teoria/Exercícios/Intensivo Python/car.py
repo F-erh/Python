@@ -53,3 +53,4 @@ class EletricCar(Car):
         """inicializa atributos da classe pai"""
         super().__init__(make, model, year)
         self.Bateria = Beteria()
+    #teste de git
