@@ -1,0 +1,1024 @@
+# In[1]
+# Frameworks são coleções de componentes de software (bibliotecas, utilitários e outros) que
+# foram projetados para serem utilizados por outros sistemas.
+# In[2]
+# comentarios funcionais: são cmentarios que tem um codigo no meio São usados para alterar a codificação do
+# arquivo fonte do programa acrescentando um comentario com o texto.
+# Alterar a codificação é necessario para suportar caracteres que não fazem parte da lingua inglesa no codigo fonte.
+# Nesse caso o comentario funcional fica: #-*- coding: utf-8 -*-
+# Comentarios funcionais servem també para definir um interpretador que será utilizado ára rodar o programa em sistemas UNIX.
+# Nesse caso o comentario começa com
+#! e fica no inicio do arquivo indicando o caminho ṕara o interpretador (#!/usr/bin/env python3)
+
+# quebra de linha: /
+# metodo: rotinas associadas ao objeto
+# atributo: propriedades associadas ao objeto
+# Tanto os atributos quanto os metdos são acessados usando ponto e os metodos sempre devem ser seguidos de parenteses.
+
+# para mostrar/acessar um atributo
+import MySQLdb
+import unittest
+
+from yaml import dump
+import fib
+import copy
+from string import ascii_lowercase
+from math import log10
+from http.client import METHOD_NOT_ALLOWED
+from grpc import composite_call_credentials
+import UserString
+import string
+print objeto.atributo
+
+# para executar um metodo
+objeto.metodo(argumentos)
+
+# Mesmo um método sem argumentos precisa de parênteses
+objeto.metodo()
+
+# O ponto também é usado para acessar estruturas de módulos que foram importados pelo programa
+
+# Operadores lógicos
+# and - retorna verdadeiro se e somente se receber duas expressoes que forem verdadeiras
+# or -  retorna falso se e somente se receber duas opcoes que forem falsas
+# not - retorna falso se receber uma expressao que for verdadeira e verdadeira se receber uma expressao que for falsa
+# is: reorna verdadeiro se receber duas referencias ao mesmo objeto e falso em caso contrario
+# in - retorna verdadeiro se receber um item e uma lista e o item ocorrer uma ou mais vezes na lista e falso em caso contrario
+
+# lacos de repetição
+# estruturas de repeticao, geralmente usados para processar colecoes de dados que precisam ser rocesasados por um mesmo bloco de codigo
+
+# For - executa um bloco de codigo para cada item de uma colecao
+# A instrução for aceita não só seqüências estáticas, mas também seqüências geradas por
+# iteradores. Iterador é uma estrutura que permite iterações, ou seja, acesso aos itens de uma
+# coleção de elementos, de forma seqüencial.
+
+# Soma de 0 a 99
+s = 0
+for x in range(1, 100):
+s = s + x
+print s
+
+# While - executa um bloco de codigo enquanto uma condicao for verdadeira
+# é adequado quando não há como determinar quantas iterações vão ocorrer e
+# não há uma seqüência a seguir.
+
+# Soma de 0 a 99
+s = 0
+x = 1
+while x < 100:
+s = s + x
+x = x + 1
+print s
+
+# # Variaveis: são locais que armazenam valores
+# são criadas através da atribuição e destruídas pelo coletor de lixo, quando não existem mais
+# referências a elas. São referências, que podem ser alteradas em tempos de execução.
+
+# Os tipos no Python podem ser:
+# ▪ Mutáveis: permitem que os conteúdos das variáveis sejam alterados.
+# ▪ Imutáveis: não permitem que os conteúdos das variáveis sejam alterados.
+
+# Strings são objetos
+if s.startswith('C'):
+    print s.upper()
+
+# Interpolação:
+# Operador “%” é usado para fazer interpolação de strings. A interpolação é mais eficiente
+# do que a concatenação convencional.
+
+# Símbolos usados na interpolação:
+# ▪ %s: string.
+# ▪ %d: inteiro.
+# ▪ %f: real.
+
+# É possível inverter strings usando um intervalo negativo:
+print 'Python'[::-1]
+# Mostra: nohtyP
+
+# importando o módulo string
+# Cria uma string template
+st = string.Template('$aviso aconteceu em $quando')
+# Preenche o modelo com um dicionário
+s = st.substitute({'aviso': 'Falta de eletricidade',
+                   'quando': '03 de Abril de 2002'})
+# Mostra:
+# Falta de eletricidade aconteceu em 03 de Abril de 2002
+print s
+
+# -*- coding: latin1 -*-
+# importando o módulo UserString
+s = UserString.MutableString('Python')
+s[0] = 'p'
+print s  # mostra "python"
+
+# Listas podem ser convertidas em tuplas:
+# tupla = tuple(lista)
+# E tuplas podem ser convertidas em listas:
+# lista = list(tupla)
+
+# As tuplas são mais eficientes do que as listas convencionais, pois consomem menos
+# recursos computacionais.
+
+# Doc String - Documentação de funções
+# É um comentário que é usado para documentar funções.
+# """Doc String"
+
+
+def func(parametro1, parametro2=padrao):
+
+
+""" Doc String """
+<bloco de código >
+# return valor
+
+# *args - argumentos sem nome (lista)
+# **kargs - argumentos com nome (dicionário)
+
+# *args é usado para passar uma lista de argumentos para uma função.
+# **kargs é usado para passar um dicionário de argumentos para uma função.
+
+# Exemplo:
+
+
+def soma_todos(lista):
+    total = 0
+    for item in lista:
+        total += item
+    # return total
+# In[2]
+# Módulo
+# É um arquivo que contém funções, classes, atributos e mais.
+# É um arquivo que pode ser importado em outros arquivos.
+# É um arquivo que pode ser executado diretamente e são executados quando são importados.
+# Eles são compilados quando importados pela primeira vez e armazenados em arquivo (com extensão “.pyc” ou “.pyo”)
+# São objetos Singleton (só é carregada uma instância em memória, que fica disponível de forma global para o programa).
+# O módulo principal de um programa tem a variável __name__ igual à “__main__”, então é possível testar se o módulo é o principal usando:
+
+
+if __name__ == "__main__":
+    # Aqui o código só será executado
+    # se este for o módulo principal
+    # e não quando ele for importado por outro programa
+    # In[3]
+    # Geradores
+
+    # É um objeto que retorna um objeto iterável.
+    # Geradores procesam e retornam um valor e uma sequencia a cada chamada,
+    # lembram do estado do processamento entre as chamadas e retornam o
+    # próximo valor.
+    # Reduzem a necessidade de criação de uma lista ou de um dicionário.
+    # normalmente são evocados através de um laço for. A sintaxe é semelhante a da
+    # função tradicional, só que a instrução yield substitui o return. A nova cada iteração, yield
+    # retorna o próximo valor.
+
+    # Exemplo:
+    # -*- coding: latin-1 -*-
+
+
+    def gen_pares():
+        """
+        Gera números pares infinitamente...
+        """
+        i = 0
+        while True:
+        i += 2
+        yield i
+        # Mostra cada número e passa para o próximo
+        for n in gen
+
+# Programação funcional
+# As operações básicas do paradigma funcional são implementadas no Python pelas funções
+# map(), filter(), reduce() e zip().
+
+# Lambda
+# é uma função anônima composta apenas por expressões. As funções
+# lambda podem ter apenas uma linha, e podem ser atribuídas a uma variável.
+
+# Sintaxe:
+# lambda <lista de variáveis>: <expressões >
+
+# Exemplo:
+
+
+# Amplitude de um vetor 3D
+def amp(x, y, z): return (x ** 2 + y ** 2 + z ** 2) ** .5
+
+
+print(amp(1, 1, 1))
+print(amp(3, 4, 5))
+# # Mapeamento
+# O mapeamento consiste em aplicar uma função a todos os itens de uma seqüência,
+# gerando outra lista contendo os resultados e com o mesmo tamanho da lista inicial. (Imagem de uma função)
+
+# No Python, o mapeamento é implementado pela função map().
+# Exemplos:
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+# log na base 10
+print(map(log10, nums))
+# Dividindo por 3
+print(map(lambda x: x / 3, nums))
+# A função map() sempre retorna uma lista.
+
+# Redução
+# A função reduce() é usada para reduzir uma lista de itens em um único valor.
+# Redução significa aplicar uma função que recebe dois parâmetros, nos dois primeiros
+# elementos de uma seqüência, aplicar novamente a função usando como parâmetros o
+# resultado do primeiro par e o terceiro elemento, seguindo assim até o final da seqüência. O
+# resultado final da redução é apenas um elemento.
+
+# Exemplos de redução, que é implementada no Python pela função reduce():
+# -*- coding: latin1 -*-
+nums = range(100)
+# Soma com reduce (pode concatenar strings)
+print(reduce(lambda x, y: x + y, nums))
+# Soma mais simples, mas só para números
+print(sum(nums))
+# Multiplicação
+print(reduce(lambda x, y: x * y, nums))
+# A função sum() é mais eficiente que reduce().
+
+# Transposição
+# é construir uma série de seqüências a partir de outra série de seqüências,
+# aonde a primeira nova seqüência contém o primeiro elemento de cada seqüência original,
+# a segunda nova seqüência contém o segundo elemento de cada seqüência original, até que
+# alguma das seqüências originais acabe. (dominio de uma função)
+
+# Exemplo de transposição, que é implementada no Python pela função zip():
+# Uma lista com ('a', 1), ('b', 2), ...
+print(zip(ascii_lowercase, range(1, 100)))
+# Transposta de uma matriz
+matriz = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+print(zip(*matriz))
+# A função zip() sempre retorna uma lista de tuplas.
+
+''' List Comprehension'''
+''' É uma forma de construir uma lista a partir de uma expressão.
+ é uma construção equivalente a notações matemáticas do tipo:
+
+ S={x^2 ∀ x em N , x>=20}
+ Ou seja, S é o conjunto formado por x ao quadrado para todo x no conjunto dos números
+ naturais, se x for maior ou igual a 20.'''
+
+# Sintaxe:
+lista = [ < expressão > for < referência > in < seqüência > if < condição > ]
+
+# Exemplo:
+# -*- coding: latin1 -*-
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+# Eleve os ímpares ao quadrado
+print([x**2 for x in nums if x % 2])
+
+''' O List Comprehension é mais eficiente do que usar as funções map() e filter().
+
+ Generator Expressions
+ é uma expressão semelhante ao List Comprehension que funciona como um gerador.'''
+# Exemplo:
+# -*- coding: latin1 -*-
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]78
+
+# Eleve os ímpares ao quadrado
+gen = (x**2 for x in nums if x % 2)
+# Mostra os resultados
+for num in gen:
+    print(num)
+# O Generator Expression usa menos recursos do que o List Comprehension equivalente.
+
+''' Decoradores.
+ Classes.
+ Testes automatizados.
+
+ Decoradores
+ Decoradores são funções que são aplicadas a outras funções e retornam funcoes modificadas.
+ podem ser usados para alterar propriedades das funções (que são objetos) quanto para “envolver” as funções,
+ acrescentando uma camada em torno delas com novas funcionalidades.
+
+ o caractere “@” pode ser usado para automatizar o processo de # aplicar o decorador:'''
+
+
+def decorator(f):
+    f.decorated = True
+    return f
+
+
+@decorator
+def func(arg):
+    return arg
+
+# Com isso, foi criado um atributo novo na função, que pode ser usado depois, quando a
+# função for executada.
+
+# Exemplo:
+# -*- coding: latin1 -*-
+# Função decoradora
+
+
+def dumpargs(f):
+    # Função que envolverá a outra
+    def func(*args):
+        # Mostra os argumentos passados para a função
+        print(args)
+# Retorna o resultado da função original
+        return f(*args)
+# Retorna a função modificada
+    return func
+
+
+@dumpargs
+def multiply(*nums):
+    m = 1
+    for n in nums:
+        m = m * n
+    return m
+
+
+print(multiply(1, 2, 3))
+
+''' Classe
+ Objeto = entidade com qualidades e ações (atributos e métodos).
+ Classe é um objeto onde está definido um conjunto de atributos e métodos, como suas caracteristicas e o que ele pode fazer.
+ Atributos são estruturas de dadis sobre o objeto e metodos sao funções que descrevem como o objeto se composite_call_credentials
+ Objetos são criados a partir de classes quais são criados através de atribuições.'''
+ 
+ __init__() 
+ ''' é um método chamado quando um objeto é criado.
+ Um objeto continua existindo enquanto existir pelo menos uma referencia a ele.
+ Métodos especiais são identificados por nomes no padrão __metodo__() (dois sublinhados
+ no início e no final do nome) e definem como os objetos derivados da classe se
+ comportarão em situações particulares, como em sobrecarga de operadores.
+
+ Proprieties são atributos que podem ser acessados e modificados.
+ Metaclasse é uma classe que define o comportamento de uma classe.'''
+
+# Sintaxe de uma classe :
+# -*- coding: latin1 -*-
+
+
+class Classe(supcl1, supcl2):
+
+
+    """ Isto é uma classe. """
+clsvar = []
+
+
+def __init__(self, args):
+    """ Inicializador da classe """
+  #<bloco de código >
+    def __done__(self):
+        """ Destrutor da classe """
+  #<bloco de código >
+    def metodo(self, params):
+        """Método de objeto"""
+  #<bloco de código >
+    @classmethod
+    def cls_metodo(cls, params):
+        """Método de classe"""
+  #<bloco de código >
+    @staticmethod
+    def est_metodo(params):
+        """Método estático"""
+  #<bloco de código >
+
+
+obj = Classe()
+obj.metodo()
+Classe.cls_metodo()
+Classe.est_metodo()
+
+# Métodos estáticos são aqueles que não tem ligação com atributos do objeto ou da classe.
+
+# Metodos de classe são aqueles que não tem ligação com atributos do objeto, mas com a classe.
+cls  # = Classe() Precisa ser passado explicitamente como parametro do METHOD_NOT_ALLOWED
+# Metodos de objetos são aquele que não tem ligação com a classe, mas com o objeto.
+self  # = Classe() Precisa ser passado explicitamente como parametro do METHOD_NOT_ALLOWED
+
+# Exemplo de classe:
+    # -*- coding: latin1 -*-
+
+
+class Cell(object):
+
+
+    """ Classe para células de planilha """
+
+
+def __init__(self, formula='""', format='%s'):
+    """ Inicializa a célula """
+    self.formula = formula
+    self.format = format
+    def __repr__(self):
+        """ Retorna a representação em string da célula ."""
+    return self.format % eval(self.formula)
+
+
+print(Cell('123**2'))
+print(Cell('23*2+2'))
+print(Cell('abs(-1.45 / 0.3)', '%2.3f'))
+
+# O método __repr__() é usado internamente pelo comando print para obter uma
+# representação do objeto em forma de texto.
+
+''' Classes abertas
+ Classes abertas são classes que podem ser herdadas por outras classes.
+
+ podem ser alteradas em tempo de execução,
+ devido a natureza dinâmica da linguagem. É possível acrescentar métodos e atributos
+ novos, por exemplo. A mesma lógica se aplica aos objetos.'''
+
+# Exemplo de como acrescentar um novo método:
+# -*- coding: latin1 -*-
+
+
+class User(object):
+
+
+    """Uma classe bem simples.
+    """
+
+
+def __init__(self, name):
+    """Inicializa a classe, atribuindo um nome
+    """
+    self.name = name
+# Um novo método para a classe
+
+
+def set_password(self, password):
+    """Troca a senha
+    """
+    self.password = password
+
+
+print('Classe original:', dir(User))
+# O novo método é inserido na classe
+User.set_password = set_password
+print('Classe modificada:', dir(User))
+user = User('guest')
+user.set_password('guest')
+print('Objeto:', dir(user))
+print('Senha:', user.password)
+
+''' A classe modificada passou a ter um novo método: set_password().
+ Acrescentar métodos ou atributos em classes abertas é mais simples do que criar uma
+ nova classe através de herança com os novos métodos ou atributos.
+
+ Herança Simples
+ Herança simples é uma classe que herda de outra classe.
+ A classe filha herda todos os atributos e métodos da classe pai.
+ Facilita o reaproveitamento de codigo
+ A nova classe pode implementar novos métodos e atributos e herdar métodos e atributos
+ da classe antiga (que também pode ter herdado de classes anteriores), porém estes
+ métodos e atributos podem substituídos no processo. Na herança simples, a classe deriva
+ de somente uma classe já existente.'''
+
+# Exemplo de herança simples:
+
+# classe pai
+
+
+class Pendrive(object):
+    def __init__(self, tamanho, interface='2.0'):
+        self.tamanho = tamanho
+        self.interface = interface
+
+# classe herdeira
+
+
+class MP3Player(Pendrive):
+    def __init__(self, tamanho, interface='2.0', turner=False):
+        self.turner = turner
+        Pendrive.__init__(self, tamanho, interface)
+
+
+mp3 = MP3Player(1024)
+print('%s\n%s\n%s' % (mp3.tamanho, mp3.interface, mp3.turner))
+
+# A classe MP3Player é derivadada classe Pendrive, trazendo o tamanho e a interface.
+
+''' Herança Múltipla
+ Herança múltipla é uma classe que herda de várias classes.
+ A diferença mais significativa em relação à herança simples é a ordem de resolução de métodos (em inglês,
+ Method Resolution Order- MRO), que segue o chamado algoritmo diamante.
+ No algoritmo diamante, a resolução será feita a partir da esquerda, descendo até encontrar
+ a classe em comum entre os caminhos dentro hierarquia. Quando encontra a classe em
+ comum, passa para o caminho à direita. Ao esgotar os caminhos, o algoritmo prossegue
+ para a classe em comum e repete o processo.
+
+ se carro faz parte da classe dos terrestetres e barco faz parte dos aquaticos,
+ e ambos tem ligação e semelhanca, portanto carro e barco é um anfibio'''
+
+# Exemplo:
+# -*- coding: latin1 -*-
+
+
+class Terrestre(object):
+    """
+    Classe de veículos terrestres
+    """
+    se_move_em_terra = TrueClasses
+    93
+
+    def __init__(self, velocidade=100):
+        """
+        Inicializa o objeto
+        """
+        self.velocidade_em_terra = velocidade
+
+
+class Aquatico(object):
+    """
+    Classe de veículos aquaticos
+    """
+    se_move_na_agua = True
+
+    def __init__(self, velocidade=5):
+        """
+        Inicializa o objeto
+        """
+        self.velocidade_agua = velocidade
+
+
+class Carro(Terrestre):
+    """
+    Classe de carros
+    """
+    rodas = 4
+    # A classe Carro deriva de Terrestre.
+
+    def __init__(self, velocidade=120, pistoes=4):
+        """
+        Inicializa o objeto
+        """
+        self.pistoes = pistoes
+        Terrestre.__init__(self, velocidade=velocidade)
+
+
+class Barco(Aquatico):
+    """
+    Classe de barcos
+    """
+
+    def __init__(self, velocidade=6, helices=1):
+        """
+        Inicializa o objeto
+        """
+        self.helices = helices
+        Aquatico.__init__(self, velocidade=velocidade)
+
+
+class Anfibio(Carro, Barco):
+    """
+    Classe de anfíbios
+    """
+
+    def __init__(self, velocidade_em_terra=80, velocidade_na_agua=4, pistoes=6, helices=2):
+        """
+        Inicializa o objeto
+        """
+# É preciso evocar o __init__ de cada classe pai
+    Carro.__init__(self, velocidade=velocidade_em_terra,
+                   pistoes=pistoes)
+    Barco.__init__(self, velocidade=velocidade_na_agua,
+                   helices=helices)
+
+
+novo_anfibio = Anfibio()
+for atr in dir(novo_anfibio):
+    # Se não for método especial:
+    if not atr.startswith('__'):
+        print(atr, '=', getattr(novo_anfibio, atr))
+# A classe Barco deriva de Aquatico.
+# A classe Anfibio é derivada de Carro e Barco.
+
+''' propriedades
+ Propriedades são atributos que são acessados e modificados por meio de métodos.
+ são caclculados em tempo de execução e criadas através da funcao property().
+ A função property() recebe um método que calcula o valor da propriedade.
+ O método que calcula o valor da propriedade é chamado getter.
+ O método que modifica o valor da propriedade é chamado setter.
+ O método que retorna o valor da propriedade é chamado deleter.
+ Vantagens:
+ - A propriedade é calculada somente uma vez.
+ - Validar a entrada de dados
+ - Criar aributos apenas de leitura
+ - A facilidade de mudar de um atributo convencional para uma propriedade sem a necessidade de alterar as aplicações que utilizam a classe.'''
+
+# Exemplo:
+
+
+class Projetil(object):
+    def __init__(self, alcance, tempo):
+
+        self.alcance = alcance
+        self.tempo = tempo
+
+
+@property
+def velocidade(self):
+
+    return self.alcance / self.tempo
+
+
+moab = Projetil(alcance=10000, tempo=60)
+# A velocidade é calculada
+print(moab.velocidade)
+
+# Exemplo de propriedade através de chamada de função:
+
+# Property de leitura & escrita
+
+
+class Projetil(object):
+    def __init__(self, alcance, tempo):
+        self.alcance = alcance
+        self.tempo = tempo
+# Calcula a velocidade
+
+    def getv(self):
+        return self.alcance / self.tempo
+# Calcula o tempo
+
+    def setv(self, v):
+        self.tempo = self.alcance / v
+
+
+# Define a propriedade
+velocidade = property(getv, setv)
+moab = Projetil(alcance=10000, tempo=60)
+print(moab.velocidade)
+# Muda a velocidade
+moab.velocidade = 350
+print(moab.tempo)
+
+''' Metaclasses
+ Metaclasses são classes que são usadas para definir comportamentos de classes.
+ type() é uma função que retorna uma classe e pode ser usada pra criar classes.'''
+
+# Exemplo de metaclasse criada a partir de type:
+# -*- coding: latin1 -*-
+
+
+class Singleton(type):
+    """
+    Metaclasse Singleton
+    """
+    def __init__(cls, name, bases, dic):
+        type.__init__(cls, name, bases, dic)
+# Retorna o próprio objeto na cópia
+
+    def __copy__(self):
+        return self
+# Retorna o próprio objeto na cópia recursiva
+
+    def __deepcopy__(self, memo=None):
+        return self
+        cls.__copy__ = __copy__
+        cls.__deepcopy__ = __deepcopy__
+
+    def __call__(cls, *args, **kwargs):
+        # Chamada que cria novos objetos,
+        # aqui retorna sempre o mesmo
+        try:
+            return cls.__instance
+# Se __instance não existir, então crie...
+        except AttributeError:
+            # A função super() pesquisa na MRO
+            # a partir de Singleton
+            cls.__instance = super(Singleton,
+                                   cls).__call__(*args, **kwargs)
+            return cls.__instance
+
+
+class Con(object):
+    """
+    Classe de conexão única
+    """
+    # Define a metaclasse desta classe
+    __metaclass__ = Singleton
+
+    def __init__(self):
+        # Cria uma conexão e um cursor
+        con = MySQLdb.connect(user='root')
+        self.db = con.cursor()
+# Sempre será usado o mesmo
+# objeto de cursor
+
+
+class Log(object):
+    """
+    Classe de log
+    """
+    # Define a metaclasse desta classe
+    __metaclass__ = Singleton
+
+    def __init__(self):
+        # Abre o arquivo de log para escrita
+        self.log = file('msg.log', 'w')
+# Sempre será usado o mesmo
+# objeto de arquivo
+
+    def write(self, msg):
+        print(msg)
+# Acrescenta as mensagens no arquivo
+        self.log.write(str(msg) + '\n')
+
+
+# Conexão 1
+con1 = Con()
+Log().write('con1 id = %d' % id(con1))
+con1.db.execute('show processlist')
+Log().write(con1.db.fetchall())
+# Conexão 2102
+con2 = Con()
+Log().write('con2 id = %d' % id(con2))
+con2.db.execute('show processlist')
+Log().write(con2.db.fetchall())
+# Conexão 3
+con3 = copy.copy(con1)
+Log().write('con3 id = %d' % id(con3))
+con3.db.execute('show processlist')
+Log().write(con2.db.fetchall())
+
+''' Com isso, todas as referências apontam para o mesmo objeto.
+
+ Testes automatizados
+ Testes automatizados são testes que são executados automaticamente.
+ doctest() é uma função que executa os testes automatizados usando doc strings.
+ OBS: O doctest() não funciona com classes.
+ O doctest procura por um trecho de texto seja semelhante a uma sessão interativa de Python,
+ executa a mesma seqüência de comandos, analisa a saída e faz um relatório dos testes que
+ falharam, com os erros encontrados.'''
+
+# Exemplo de teste com o doctest():
+"""
+fib.py
+Implementa Fibonacci.
+"""
+
+
+def fib(n):
+    """Fibonacci:
+    Se n <= 1, fib(n) = 1
+    Se n > 1, fib(n) = fib(n - 1) + fib(n - 2)
+    Exemplos de uso:
+# Testes para o doctest
+    >>> fib(0)
+    1
+    >>> fib(1)
+    1
+    >>> fib(10)
+    89
+    >>> [ fib(x) for x in xrange(10) ]
+    [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+    >>> fib('')
+    Traceback (most recent call last):
+    File "<input>", line 1, in ?
+    File "<input>", line 19, in fib
+    TypeError
+    >>>
+    """
+    if not type(n) is int:
+        raise TypeError
+    if n > 1:
+        return fib(n - 1) + fib(n - 2)
+    else:
+        return 1
+
+    def _doctest():
+        """
+        Evoca o doctest.
+        """
+    import doctest
+    doctest.testmod()
+
+
+if __name__ == "__main__":
+    _doctest()
+''' Os testes serão executados se este módulo for evocado diretamente pelo Python.
+
+ no caso do unnitest(), os testes são criados através de uma subclasse de unittest.TestCase.
+ Os testes são definidos como métodos que começam com o prefixo test.
+
+ Devem chamar ao terminar um dos metodos:
+ - run() para executar os testes
+ - debug() para executar os testes com o modo de debug
+ - failures() para verificar se há falhas
+ - errors() para verificar se há erros
+ - skipped() para verificar se há testes que foram ignorados
+ - testsRun() para verificar o número de testes executados
+ - testNames() para verificar os nomes dos testes
+ - wasSuccessful() para verificar se o teste foi executado com sucesso
+ - assert_ (assertEquals, assertTrue, assertFalse, assertRaises): métodos de verificação se a condição é verdadeira(atingida)
+ - assertEqual(a, b): verifica se a == b
+ - assertTrue(x): verifica se x é verdadeiro
+ - assertFalse(x): verifica se x é falso
+ - assertRaises(exc, callable, *args, **kwargs): verifica se a exceção exc é lançada quando chamado o método callable com os argumentos args e kwargs
+
+ setUp() e tearDown() são métodos que são executados antes e depois de cada teste.'''
+
+# Exemplo
+"""
+fibtest.py
+Usa unittest para testar fib.py.
+"""
+
+
+class TestSequenceFunctions(unittest.TestCase):
+    def setUp(self):
+        self.seq = range(10)
+    # Métodos que definem os testes
+
+    def test0(self):
+        self.assertEqual(fib.fib(0), 1)
+
+    def test1(self):
+        self.assertEqual(fib.fib(1), 1)
+
+    def test10(self):
+        self.assertEqual(fib.fib(10), 89)
+
+    def testseq(self):
+        fibs = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+        for x, y in zip(fibs, [fib.fib(x) for x in self.seq]):
+            self.assert_(x is y)
+
+    def testtype(self):
+        self.assertRaises(TypeError, fib.fib, '')
+
+
+if __name__ == '__main__':
+    unittest.main()
+
+'''Parte 5 
+     NumPy.
+     Gráficos.
+     Processamento de imagem.
+     Gráficos 3D.
+     Persistência.
+     Banco de dados.
+     Web.
+     MVC.
+
+ * Numpy
+ Numpy é um módulo de Python que fornece uma interface de acesso rápido aos arrays de números de alta performance.
+ inclui pacotes da classe array, matriz e outras funções euxiliares
+
+ a classe array implementa um arranjo homogêneo de números. É semelhante a uma lista de Python, porém mais parruda'''
+
+# Exemplo de uso de Numpy
+import numpy
+# Criando arranjos
+print ('Arranjo criado a partir de uma lista:')
+a = numpy.array([0, 1, 2, 3, 4, 5, 6, 7, 8])
+print (a)
+# [0 1 2 3 4 5 6 7 8]
+print ('Arranjo criado a partir de um intervalo:')
+z = numpy.arange(0., 4.5, .5)
+print (z)
+# [ 0. 0.5 1. 1.5 2. 2.5 3. 3.5 4. ]
+print ('Arranjo de 1s 2x3:')
+y = numpy.ones((2, 3))
+print (y)
+# [[ 1. 1. 1.]
+# [ 1. 1. 1.]]
+print ('Arranjos podem gerar novos arranjos:')
+# numpy.round() é uma função do numpy
+# semelhante ao builtin round(), porém aceita
+# arranjos como parâmetro
+cos = numpy.round(numpy.cos(z), 1)
+print (cos)
+# [ 1. 0.9 0.5 0.1 -0.4 -0.8 -1. -0.9 -0.7]
+print ('Multiplicando cada elemento por um escalar:')
+print (5 * z)
+# [ 0. 2.5 5. 7.5 10. 12.5 15. 17.5 20. ]
+print ('Somando arranjos elemento por elemento:')
+print (z + cos)
+# [ 1. 1.4 1.5 1.6 1.6 1.7 2. 2.6 3.3]
+print ('Redimensionando o arranjo:')
+z.shape = 3, 3
+print (z)
+# [[ 0. 0.5 1. ]
+# [ 1.5 2. 2.5]
+# [ 3. 3.5 4. ]]
+print ('Arranjo transposto:')
+print( z.transpose())
+# [[ 0. 1.5 3. ]
+# [ 0.5 2. 3.5]
+# [ 1. 2.5 4. ]]
+print ('"Achata" o arranjo:')
+print (z.flatten())
+# [ 0. 0.5 1. 1.5 2. 2.5 3.3.5 4. ]
+print ('O acesso aos elementos funciona como nas listas:')
+print (z[1])
+# [ 1.5 2. 2.5]
+print ('Caso especial, diferente da lista:')
+print (z[1, 1])
+# 2.0
+# Dados sobre o arranjo
+print ('Formato do arranjo:')
+print( z.shape)
+# (3, 3)
+print ('Quantidade de eixos:')
+print (z.ndim)
+# 2
+print ('Tipo dos dados:')
+print (z.dtype)
+# float64
+
+"""O NumPy serve de base para diversos módulos, como o Matplolib, que implementa
+gráficos 2D e 3D, e o SciPy 20 , que expande o NumPy com mais rotinas voltadas para a área
+cientifica."""
+
+"""Persistência de dados
+é a manutenção do estado de uma estrutura de dados entre execuções de uma aplicação. A persistência
+permite que o desenvolvedor escreva um codigo que salve o estado de uma aplicação em um arquivo explicitamente 
+e recupere o estado da aplicação em um arquivo.
+
+Serialização: é a forma mais simples e direta de persistencia e consiste em gravar em disco uma imagem""" 
+dump()"""do objeto que pode ser recarregada posteriormente com o""" load()
+
+"""Objetos “serializáveis” são aqueles objetos que podem ser convertidos e recuperados pelo
+Pickle. Entres os objetos que não podem ser processados pelo Pickle, estão os objetos
+implementados em módulos escritos em C, por exemplo."""
+
+"""Para armazenar dados de forma de texto, existem módulos para Python para ler e gravar
+estruturas de dados em formatos:
+▪ JSON (JavaScript Object Notation).
+▪ YAML (YAML Ain't a Markup Language).
+▪ XML (Extensible Markup Language)."""
+
+"""ZODB
+Zope Object Database (ZODB) é um banco de dados orientado a objeto que oferece uma
+forma de persistência quase transparente para aplicações escritas em Python e foi
+projetado para ter pouco impacto no código da aplicação.
+ZODB suporta transações, controle de versão de objetos e pode ser conectado a outros
+backends através do Zope Enterprise Objects (ZEO), permitindo inclusive a criação de
+aplicações distribuídas em diversas máquinas conectadas por rede.
+
+O ZODB é um componente integrante do Zope 32 , que é um servidor de aplicações
+desenvolvido em Python, muito usado em Content Management Systems (CMS).
+Componentes do ZODB:
+▪ Database: permite que a aplicação abra conexões (interfaces para acesso aos objetos).
+▪ Transaction: interface que permite tornar as alterações permanentes.
+▪ Persistence : fornece a classe base Persistent.
+▪ Storage: gerencia a representação persistente em disco.
+▪ ZEO: compartilhamento de objeto entre diferentes processos e máquinas."""
+
+# Exemplo de uso do ZODB:
+# -*- coding: latin1 -*-
+from ZODB import FileStorage, DB
+import transaction
+# Definindo o armazenamento do banco
+storage = FileStorage.FileStorage('people.fs')
+db = DB(storage)
+# Conectando
+conn = db.open()
+# Referência para a raíz da árvore
+root = conn.root()
+# Um registro persistente
+root['singer'] = 'Kate Bush'
+# Efetuando a alteração
+transaction.commit()
+print (root['singer']) # Kate Bush
+# Mudando um atributo
+root['singer'] = 'Tori Amos'
+print (root['singer']) # Tori Amos
+# Abortando...
+transaction.abort()
+print (root['singer'] )# Kate Bush
+
+"""O ZODB tem algumas limitações que devem ser levadas em conta durante o projeto da
+aplicação:
+▪ Os objetos precisam ser “serializáveis” para serem armazenados.
+▪ Objetos mutáveis requerem cuidados especiais."""
+
+
+"""YAML
+é um formato de serialização de dados para texto que representa os dados como
+combinações de listas, dicionários e valores escalares. Tem como principal característica
+ser legível por humanos. Onde:
+
+▪ Os blocos são marcados por endentação.
+▪ Listas são delimitadas por colchetes ou indicadas por traço.
+▪ Chaves de dicionário são seguidas de dois pontos.
+"""
+
+"""MVC
+Modelo, View e Controller
+Modelo: é a representação de dados da aplicação.
+View: é a representação visual da aplicação.
+Controller: é a lógica de negócios da aplicação.
+
+é uma arquitetura de software que divide a aplicação em três
+partes distintas: o modelo de dados da aplicação, a interface com o usuário e a lógica de
+controle.
+O objetivo é obter um baixo acoplamento entre as três partes de forma que uma alteração
+em uma parte tenha pouco (ou nenhum) impacto nas outras partes."""
+
+"""Parte 6
+    Interface gráfica.
+    Threads.
+    Processamento distribuído.
+    Performance.
+
+"""

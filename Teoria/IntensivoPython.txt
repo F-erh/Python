@@ -1,0 +1,276 @@
+Toda variável armazena um valor, que é a informação associada a essa variável.
+
+Regras de uso de variaveis:
+• Nomes de
+variáveis podem conter apenas letras, números e underscores. Podem
+começar com uma letra ou um underscore, mas não com um número.
+Por exemplo, podemos chamar uma variável de message_1, mas não de
+1_message.
+• Espaços não são permitidos em nomes de variáveis, mas
+underscores podem ser usados para separar palavras em nomes de
+variáveis. Por exemplo, greeting_message funciona, mas greeting
+message causará erros.
+• Evite usar palavras reservadas e nomes de funções em Python como
+nomes de variáveis, ou seja, não use palavras que Python reservou
+para um propósito particular de programação, por exemplo, a
+palavra print .
+
+Um método é uma ação que Python pode executar em um dado.
+Todo método é seguido de um conjunto de parênteses, pois os
+métodos, com frequência, precisam de informações adicionais para realizar
+sua tarefa. Essas informações são fornecidas entre os parênteses.
+
+O método append() facilita criar listas dinamicamente. Por exemplo,
+podemos começar com uma lista vazia e então acrescentar itens à lista
+usando uma série de instruções append(). O append() adiciona um item no final da lista
+
+O método pop() remove o último item de uma lista, mas permite que
+você trabalhe com esse item depois da remoção. O termo pop deriva de
+pensar em uma lista como se fosse uma pilha de itens e remover um item
+(fazer um pop) do topo da pilha. Nessa analogia, o topo da pilha
+corresponde ao final da lista.
+
+Se conhecer apenas o valor do item que deseja remover, o método
+remove() poderá ser usado.
+
+sempre que quiser acessar o último item de uma
+lista, você deve usar o índice -1 . Isso sempre funcionará, mesmo que sua
+lista tenha mudado de tamanho desde a última vez que você a acessou
+
+A função range() de Python facilita gerar uma série de números.
+A função range() faz Python começar a contar no primeiro valor que você lhe fornecer e parar
+quando atingir o segundo valor especificado.
+Também podemos usar a função range() para dizer a Python que
+ignore alguns números em um dado intervalo.
+
+Uma list comprehension combina o laço for e a criação de novos elementos em
+uma linha, e concatena cada novo elemento automaticamente.
+
+Para usar essa sintaxe, comece com um nome descritivo para
+a lista, por exemplo, squares. Em seguida, insira um colchete de abertura
+e defina a expressão para os valores que você quer armazenar na nova
+lista. Nesse exemplo, a expressão é value**2, que eleva o valor ao
+quadrado. Então escreva um laço for para gerar os números que você quer
+fornecer à expressão e insira um colchete de fechamento.
+
+Para criar uma fatia, especifique o índice do primeiro e do último
+elemento com os quais você quer trabalhar.
+print(players[0:3])
+Se o primeiro índice de uma fatia for omitido, Python começará sua
+fatia automaticamente no início da lista
+
+Para copiar uma lista, podemos criar uma fatia que inclua a lista
+original inteira omitindo o primeiro e o segundo índices ( [:] ). Isso diz a
+Python para criar uma lista que começa no primeiro item e termina no
+último, gerando uma cópia da lista toda.
+
+Python refere-se a valores que não podem mudar como imutáveis, e uma lista imutável é
+chamada de tupla.
+Uma tupla se parece exatamente com uma lista, exceto por usar parênteses no lugar de colchetes.
+
+No coração de cada instrução if está uma expressão que pode ser
+avaliada como True ou False , chamada de teste condicional. Python usa os
+valores True e False para decidir se o código em uma instrução if deve
+ser executado. Se um teste condicional for avaliado como True , Python
+executará o código após a instrução if . Se o teste for avaliado como
+False , o interpretador ignorará o código depois da instrução if .
+A maioria dos testes condicionais compara o valor atual de uma variável
+com um valor específico de interesse.
+
+Um único sinal de igual, é uma instrução e o sinal de igualdade duplo devolve True se os 
+valores dos lados esquerdo e direito do operador forem iguais, e False se forem diferentes.
+Se quiser determinar se dois valores não são iguais, você poderá combinar um ponto de 
+exclamação e um sinal de igualdade ( != ). O ponto de exclamação representa não
+
+O bloco else é uma instrução que captura tudo. Ela corresponde a
+qualquer condição não atendida por um teste if ou elif específicos
+Python não executa nenhum teste depois do primeiro que passar em uma
+cadeia if-elif-else.
+
+Em suma, se quiser que apenas um bloco de código seja executado,
+utilize uma cadeia if - elif - else . Se mais de um bloco de código deve
+executar, utilize uma série de instruções if independentes.
+
+Um dicionário em Python é uma coleção de pares chave-valor. Cada chave
+é conectada a um valor, e você pode usar uma chave para acessar o valor
+associado a ela. O valor de uma chave pode ser um número, uma string,
+uma lista ou até mesmo outro dicionário. De fato, podemos usar
+qualquer objeto que possa ser criado em Python como valor de um
+dicionário.
+Em Python, um dicionário é representado entre chaves, {}
+Um par chave-valor é um conjunto de valores associados um ao outro.
+Quando fornecemos uma chave, Python devolve o valor associado a
+essa chave. Toda chave é associada a seu valor por meio de dois-pontos,
+e pares chave-valor individuais são separados por vírgulas. Podemos
+armazenar quantos pares chave-valor quisermos em um dicionário.
+
+Python não se importa com a ordem em que armazenamos
+cada par chave-valor; ele só se importa com a conexão entre cada chave
+e seu valor.
+para escrever um laço for para
+um dicionário, devemos criar nomes para as duas variáveis que armazenarão a
+chave e o valor de cada par chave-valor.
+O método keys() é conveniente quando não precisamos trabalhar com
+todos os valores de um dicionário.
+o método values() pode ser usado para devolver uma lista de valores sem
+as chaves.
+
+Um conjunto é semelhante a uma lista, exceto que cada item de
+um conjunto deve ser único(set())
+Quando colocamos set() em torno de uma lista que contenha itens duplicados,
+Python identifica os itens únicos na lista e cria um conjunto a partir
+desses itens.
+
+Se usarmos a função input() , Python interpretará tudo que o usuário
+fornecer como uma string.
+
+O laço for toma uma coleção de itens e executa um bloco de código uma vez para cada item da coleção.
+
+Laço while executa durante o tempo em que, ou enquanto, uma determinada
+condição for verdadeira.
+
+Para um programa que deva executar somente enquanto muitas
+condições forem verdadeiras, podemos definir uma variável que
+determina se o programa como um todo deve estar ativo. Essa variável,
+chamada de flag, atua como um sinal para o programa.
+Um laço que comece com while True executará
+indefinidamente, a menos que alcance uma instrução break.
+
+Para modificar uma lista enquanto
+trabalhar com ela, utilize um laço while . Usar laços while com listas e
+dicionários permite coletar, armazenar e organizar muitas entradas a fim de analisá-las e apresentá-las posteriormente.
+
+funções são blocos de código nomeados, concebidos para realizar uma tarefa específica.
+armazenar funções em arquivos separados, chamados de módulos
+
+Uma chamada de função diz a Python para executar o código da função. Para chamar uma
+função, escreva o nome dela, seguido de qualquer informação necessária entre parênteses
+
+parâmetro – uma informação de que a função precisa para executar sua tarefa.
+Um argumento é uma informação passada para uma função em sua chamada. Quando 
+chamamos a função, colocamos entre parênteses o valor com que queremos que a função trabalhe.
+
+argumentos posicionais, que devem estar na mesma ordem em que os parâmetros foram escritos
+argumentos nomeados (keyword arguments), em que cada argumento é constituído
+de um nome de variável e de um valor, ou por meio de listas e
+dicionários de valores
+
+a função pode processar alguns dados e então devolver um valor ou um
+conjunto de valores. O valor devolvido pela função é chamado de valor
+de retorno. A instrução return toma um valor que está em uma função e o
+envia de volta à linha que a chamou.
+
+Quando chamamos uma função que devolve um valor, precisamos
+fornecer uma variável em que o valor de retorno possa ser armazenado.
+
+O asterisco no nome do parâmetro diz a Python para criar uma tupla vazia e reunir os valores recebidos
+nessa tupla. A instrução print no corpo da função gera uma saída que
+mostra que Python é capaz de tratar uma chamada de função com um valor e
+outra chamada com três valores. As chamadas são tratadas de modo
+semelhante. Observe que Python agrupa os argumentos em uma tupla, mesmo
+que a função receba apenas um valor
+
+Os asteriscos duplos antes do parâmetro fazem Python criar um dicionário vazio e 
+colocar quaisquer pares nome-valor recebidos nesse dicionário.
+
+Uma instrução import diz a Python para deixar o
+código de um módulo disponível no arquivo de programa em execução
+no momento.
+
+Um módulo é um arquivo terminado em .py que contém o
+código que queremos importar para o nosso programa.
+
+Quando Python lê esse arquivo, a linha
+import pizza lhe diz para abrir o arquivo pizza.py e copiar todas as
+funções dele para esse programa.
+
+Para chamar uma função que está em um módulo importado, forneça
+o nome do módulo, que é pizza nesse caso, seguido do nome da função separados por um ponto
+
+import seguido do nome do módulo, deixa todas as funções
+do módulo disponíveis ao seu programa. Se você usar esse tipo de
+instrução import para importar um módulo completo chamado
+nome_do_módulo.py, todas as funções do módulo estarão disponíveis por
+meio da sintaxe a seguir: nome_do_módulo.nome_da_função()
+
+Podemos também importar uma função específica de um módulo: 
+from nome_do_módulo import nome_da_função 
+Você pode importar quantas funções quiser de um
+módulo separando o nome de cada função com uma vírgula: from
+nome_do_módulo import função_0, função_1, função_2
+
+Também podemos fornecer um alias para um nome de módulo. Dar um
+alias conciso a um módulo, por exemplo, p para pizza , permite chamar
+mais rapidamente as funções do módulo. Chamar p.make_pizza() é mais
+compacto que chamar pizza.make_pizza() : import pizza as p
+
+Na programação orientada a objetos, escrevemos classes que representam
+entidades e situações do mundo real, e criamos objetos com base nessas 
+classes. Quando escrevemos uma classe, definimos o comportamento geral 
+que toda uma categoria de objetos pode ter.
+
+Criar um objeto a partir de uma classe é uma operação conhecida
+como instanciação, e trabalhamos com instâncias de uma classe.
+
+Por convenção, nomes com a primeira
+letra maiúscula referem-se a classes em Python.
+
+Uma função que faz parte de uma classe é um método.
+O método __init__() em w é um método especial que Python
+executa automaticamente sempre que criamos uma nova instância
+baseada na classe
+
+Toda chamada de método associada a uma classe
+passa self , que é uma referência à própria instância, de modo
+automático; ele dá acesso aos atributos e métodos da classe à instância
+individual.
+
+Qualquer variável prefixada com self está disponível a todos os métodos da classe; 
+além disso, podemos acessar essas variáveis por meio de qualquer instância
+criada a partir da classe. self.name = name usa o valor armazenado no
+parâmetro name e o armazena na variável name , que é então associada à
+instância criada.
+Variáveis como essas, acessíveis por meio de instâncias, são chamadas de atributos.
+
+Para acessar os atributos de uma instância utilize a notação de ponto.
+Em v acessamos o valor do atributo name de my_dog escrevendo:
+my_dog.name
+
+Para chamar um método, especifique o nome da instância (nesse caso,
+my_dog ) e o método que você quer chamar, separados por um ponto.
+Quando Python lê my_dog.sit() , ele procura o método sit() na classe Dog
+e executa esse código.
+
+Todo atributo de uma classe precisa de um valor inicial, mesmo que esse
+valor seja 0 ou uma string vazia. Em alguns casos, por exemplo, quando
+definimos um valor default, faz sentido especificar esse valor inicial no
+corpo do método __init__() ; se isso for feito para um atributo, você não
+precisará incluir um parâmetro para ele.
+
+A maneira mais simples de modificar o valor de um atributo é acessá-lo
+diretamente por meio de uma instância.
+
+Pode ser conveniente ter métodos que atualizem determinados atributos
+para você. Em vez de acessar o atributo de modo direto, passe o novo
+valor para um método que trate a atualização internamente.
+
+Se a classe que você estiver escrevendo for uma versão especializada de
+outra classe já criada, a herança poderá ser usada. Quando uma classe
+herda de outra, ela assumirá automaticamente todos os atributos e
+métodos da primeira classe. A classe original se chama classe-pai e a nova
+classe é a classe-filha. A classe-filha herda todos os atributos e método de
+sua classe-pai, mas também é livre para definir novos atributos e
+métodos próprios.
+
+A primeira tarefa de Python ao criar uma instância de uma classe-filha é
+atribuir valores a todos os atributos da classe-pai. Para isso, o método
+__init__() de uma classe-filha precisa da ajuda de sua classe-pai.
+
+A função super() em x é uma função especial que ajuda Python a criar conexões 
+entre a classe-pai e a classe-filha. Essa linha diz a Python para
+chamar o método __init__() da classe-pai de ElectricCar , que confere
+todos os atributos da classe-pai a ElectricCar . O nome super é derivado
+de uma convenção segundo a qual a classe-pai se chama superclasse e a
+classe-filha é a subclasse.
+
+Importando classes
